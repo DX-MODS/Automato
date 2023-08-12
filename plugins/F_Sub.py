@@ -8,6 +8,7 @@ from pyrogram import Client, filters, enums
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram.errors import UserNotParticipant
 from config import Config
+from helper.utils import Automato
 from helper.database import db
 
 async def not_subscribed(_, client, message):
@@ -24,7 +25,7 @@ async def not_subscribed(_, client, message):
         pass
     return True
     
-@Client.on_message(filters.private & filters.create(not_subscribed))
+@Automato.on_message(filters.private & filters.create(not_subscribed))
 async def forces_sub(client, message):
     buttons = [[InlineKeyboardButton(text="📢 Join Update Channel 📢", url=f"https://t.me/{Config.FORCE_SUB}") ]]
     text = "**Sᴏʀʀy Dᴜᴅᴇ Yᴏᴜ'ʀᴇ Nᴏᴛ Jᴏɪɴᴇᴅ My Cʜᴀɴɴᴇʟ 😐. Sᴏ Pʟᴇᴀꜱᴇ Jᴏɪɴ Oᴜʀ Uᴩᴅᴀᴛᴇ Cʜᴀɴɴᴇʟ Tᴏ Cᴄᴏɴᴛɪɴᴜᴇ**"
