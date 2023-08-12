@@ -4,10 +4,11 @@
 #Author ZIYAN
 #if you use our codes try to donate here https://www.buymeacoffee.com/ziyankp
 
-from pyrogram import Client as DxMods,filters
+from pyrogram import Client,filters
+from helper.utils import Automato
 import time
 
-@DxMods.on_message(filters.regex("ping"))
+@Automato.on_message(filters.command("ping"))
 async def ping(b, m):
     start_t = time.time()
     ag = await m.reply_text("....")
