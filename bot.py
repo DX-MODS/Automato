@@ -23,7 +23,7 @@ logging.getLogger("pyrogram").setLevel(logging.WARNING)
 logger = logging.getLogger(__name__)
 
 
-class Bot(Client):
+class Automato(Client):
 
     def __init__(self):
         super().__init__(
@@ -66,4 +66,4 @@ class Bot(Client):
         print("Bᴏᴛ Sᴛᴏᴩᴩᴇᴅ.. Byᴇ")
        
 
-Bot().run()
+Automato().run()
