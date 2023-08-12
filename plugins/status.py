@@ -4,12 +4,12 @@
 #Author ZIYAN
 #if you use our codes try to donate here https://www.buymeacoffee.com/ziyankp
 
-from pyrogram import Client as DxTelegraphBot, filters
+from pyrogram import Client as Automato, filters
 import time
 from helper.start_time import StartTime
 from helper.readable_time import *
 import shutil, psutil
-@DxTelegraphBot.on_message(filters.private & filters.regex("status"))
+@Automato.on_message(filters.private & filters.regex("status"))
 async def stats(bot, update):
   currentTime = readable_time((time.time() - StartTime))
   total, used, free = shutil.disk_usage('.')
