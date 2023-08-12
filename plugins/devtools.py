@@ -12,9 +12,8 @@ import traceback
 from config import Config
 from requests import post
 from subprocess import getoutput as run
-
+from helper.utils import Automato
 from pyrogram import filters
-from pyrogram import Client as Dxbotz
 from pyrogram.types import (
     CallbackQuery,
     InlineKeyboardButton,
@@ -27,7 +26,7 @@ def paste(text):
     res = post(url, data={"content": text, "extension": "txt"})
     return f"https://spaceb.in/{res.json()['payload']['id']}"
         
-@Dxbotz.on_message(filters.user(Config.ADMIN) & filters.command("shell", prefixes=['/', '.', '?', '-']) & filters.private)
+@Automato.on_message(filters.user(Config.ADMIN) & filters.command("shell", prefixes=['/', '.', '?', '-']) & filters.private)
 def sh(_, m: Message):
     try:
         code = m.text.replace(m.text.split(" ")[0], "")
@@ -42,7 +41,7 @@ def sh(_, m: Message):
         h = m.reply(x)
         m.reply(e)
 
-@Dxbotz.on_message(filters.user(Config.ADMIN) & filters.command("eva"))
+@Automato.on_message(filters.user(Config.ADMIN) & filters.command("eva"))
 async def eval(client, message):
     status_message = await message.reply_text("Processing ...")
     cmd = message.text.split(" ", maxsplit=1)[1]
