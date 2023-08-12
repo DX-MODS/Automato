@@ -4,7 +4,8 @@
 #Author ZIYAN
 #if you use our codes try to donate here https://www.buymeacoffee.com/ziyankp
 
-from pyrogram import Client as Automato, filters
+from pyrogram import Client,filters
+from bot import Automato
 import time
 from helper.start_time import StartTime
 from helper.readable_time import *
