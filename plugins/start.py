@@ -10,8 +10,9 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, ForceRepl
 from helper.database import db
 from config import Config
 from helper.txt import Txt
+from helper.utils import Automato
 
-@Client.on_message(filters.private & filters.command("start"))
+@Automato.on_message(filters.private & filters.command("start"))
 async def start(client, message):
     user = message.from_user
     await db.add_user(client, message)                
@@ -30,7 +31,7 @@ async def start(client, message):
         await message.reply_text(text=Txt.START_TXT.format(user.mention), reply_markup=button, disable_web_page_preview=True)
    
 
-@Client.on_callback_query()
+@Automato.on_callback_query()
 async def cb_handler(client, query: CallbackQuery):
     data = query.data 
     if data == "start":
