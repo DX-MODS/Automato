@@ -6,7 +6,7 @@
 
 from pyrogram import filters, Client
 from helper.utils import Automato
-import beautifulsoup4, requests
+import bs4, requests
 
 @Automato.on_message(filters.regex(r'https?://.*instagram[^\s]+'), group=1)
 async def link_handler(Automato, message):
@@ -19,13 +19,13 @@ async def link_handler(Automato, message):
         try:
             if "/reel/" in url:
                getdata = requests.get(url).text
-               soup = beautifulsoup4.BeautifulSoup(getdata, 'html.parser')
+               soup = bs4.BeautifulSoup(getdata, 'html.parser')
                meta_tag = soup.find('meta', attrs={'property': 'og:video'})
                content_value = meta_tag['content']
                await message.reply_video(f"https://ddinstagram.com{content_value}")
             elif "/p/" in url:
                  getdata = requests.get(url).text
-                 soup = beautifulsoup4.BeautifulSoup(getdata, 'html.parser')
+                 soup = bs4.BeautifulSoup(getdata, 'html.parser')
                  meta_tag = soup.find('meta', attrs={'property': 'og:image'})
                  content_value = meta_tag['content']
                  await message.reply_photo(f"https://ddinstagram.com{content_value}")
