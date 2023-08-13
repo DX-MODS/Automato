@@ -19,7 +19,7 @@ HELP.update(
 )
 
 
-@Automato.on_message(filters.command("help", prefixes= Config.PREFIX) & filters.me)
+@Automato.on_message(filters.command("help", prefixes=['/', '.', '?', '-']) & filters.private)
 async def help(client, message):
     args = get_arg(message)
     if not args:
