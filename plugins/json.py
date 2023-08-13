@@ -27,18 +27,3 @@ async def jsonify(_, message):
         )            
         os.remove("json.text")
 
-
-@Client.on_message(filters.command("written"))
-async def create_file(c, message):
-    content = message.reply_to_message.text
-    file_name = message.text.split(" ", 1)[1]   
-    try:
-        with open(str(file_name), "w+") as out:
-            out.write(str(content))       
-        await message.reply_document(
-            document=str(file_name),
-            caption="out put file"
-        )            
-        os.remove(str(file_name))
-    except Exception as e:
-        await message.reply(e)
