@@ -12,7 +12,7 @@ from pyrogram.types import Message
 
 from helper.database.gmutedb import get_gmuted_users, gmute_user, ungmute_user
 
-from helper.helpers.pyrohelper import get_arg
+from helper.pyrohelper import get_arg
 
 from helper.adminhelpers import CheckAdmin
 
