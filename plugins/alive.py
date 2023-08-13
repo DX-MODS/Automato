@@ -5,7 +5,6 @@ from pyrogram import filters
 from helper.start_time import StartTime
 from sys import version_info
 from helper.utils import Automato
-from pyrogram import __version__ as __pyro_version__
 from pyrogram.types import Message
 
 
@@ -14,7 +13,7 @@ __minor__ = 2
 __micro__ = 1
 
 __python_version__ = f"{version_info[0]}.{version_info[1]}.{version_info[2]}"
-
+__pyro_version__ = "2.0.106"
 
 def get_readable_time(seconds: int) -> str:
     count = 0
