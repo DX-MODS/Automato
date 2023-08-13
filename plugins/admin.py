@@ -1,5 +1,5 @@
 from config import Config
-from helper.database import db
+from helper.db import db
 from pyrogram.types import Message
 from pyrogram import Client, filters
 from helper.utils import Automato
