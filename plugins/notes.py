@@ -8,7 +8,6 @@ from helper.pyrohelper import get_arg
 
 import helper.database.notesdb as Auto
 from config import Config
-from Config import PREFIX, LOG_CHAT
 
 
 
@@ -38,7 +37,7 @@ CMD_HELP.update(
 
 
 
-LOG_CHAT = LOG_CHAT
+LOG_CHANNEL = Config.LOG_CHANNEL
 
 
 
@@ -74,7 +73,7 @@ async def save(client, message):
 
         return
 
-    copy = await app.copy_message(LOG_CHANNEL, message.chat.id, reply.id)
+    copy = await Automato.copy_message(LOG_CHANNEL, message.chat.id, reply.id)
 
     await Auto.save_note(note_name, copy.id)
 
@@ -84,7 +83,7 @@ async def save(client, message):
 
 
 
-@Automato.on_message(filters.command("get", PREFIX) & filters.me)
+@Automato.on_message(filters.command("get", Config.PREFIX) & filters.me)
 
 async def get(client, message):
 
@@ -108,11 +107,11 @@ async def get(client, message):
 
     if message.reply_to_message:
 
-        await app.copy_message(
+        await Automato.copy_message(
 
             message.chat.id,
 
-            Config.LOG_CHANNEL,
+            LOG_CHANNEL,
 
             note,
 
@@ -122,7 +121,7 @@ async def get(client, message):
 
     else:
 
-        await app.copy_message(message.chat.id, LOG_CHAT, note)
+        await Automato.copy_message(message.chat.id, LOG_CHANNEL, note)
 
     await message.delete()
 
@@ -130,7 +129,7 @@ async def get(client, message):
 
 
 
-@Automato.on_message(filters.command("clear", PREFIX) & filters.me)
+@Automato.on_message(filters.command("clear", Config.PREFIX) & filters.me)
 
 async def clear(client, message):
 
@@ -160,7 +159,7 @@ async def clear(client, message):
 
 
 
-@Automato.on_message(filters.command("notes", PREFIX) & filters.me)
+@Automato.on_message(filters.command("notes", Config.PREFIX) & filters.me)
 
 async def notes(client, message):
 
@@ -184,7 +183,7 @@ async def notes(client, message):
 
 
 
-@Automato.on_message(filters.command("clearall", PREFIX) & filters.me)
+@Automato.on_message(filters.command("clearall", Config.PREFIX) & filters.me)
 
 async def clearall(client, message):
 
