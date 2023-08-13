@@ -7,7 +7,7 @@
 import random
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, ForceReply, CallbackQuery
-from helper.database import db
+from helper.db import db
 from config import Config
 from helper.txt import Txt
 from helper.utils import Automato
