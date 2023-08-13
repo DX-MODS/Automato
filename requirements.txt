@@ -13,3 +13,6 @@ bs4
 asyncio==3.4.3
 gTTS==2.3.1
 googletrans==3.1.0a0
+youtube-search-python
+youtube-search
+yt-dlp==2023.2.17
