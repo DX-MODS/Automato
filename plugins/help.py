@@ -1,6 +1,6 @@
 from pyrogram import filters
 from helper.utils import Automato, HELP, CMD_HELP
-from config import PREFIX
+from config import Config
 from helper.pyrohelper import get_arg
 
 HELP.update(
@@ -19,7 +19,7 @@ HELP.update(
 )
 
 
-@Automato.on_message(filters.command("help", PREFIX) & filters.me)
+@Automato.on_message(filters.command("help", Config.PREFIX) & filters.me)
 async def help(client, message):
     args = get_arg(message)
     if not args:
