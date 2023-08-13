@@ -1,5 +1,5 @@
 import motor.motor_asyncio
-from config import DB_URL
+from config import Config
 
 
-cli = motor.motor_asyncio.AsyncIOMotorClient(DB_URL)
+cli = motor.motor_asyncio.AsyncIOMotorClient(Config.DB_URL)
