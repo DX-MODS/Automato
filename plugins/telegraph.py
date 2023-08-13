@@ -3,10 +3,9 @@ import asyncio
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message, CallbackQuery
 from telegraph import upload_file
-from helper.utils import get_file_id
+from helper.utils import get_file_id, Automato 
 
-
-@Client.on_message(filters.command("telegraph") & filters.private)
+@Automato.on_message(filters.command("telegraph") & filters.private)
 async def telegraph_upload(bot, update):
     replied = update.reply_to_message
     if not replied:
