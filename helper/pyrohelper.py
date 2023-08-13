@@ -51,7 +51,7 @@ async def denied_users(filter, client: Client, message: Message):
 
 
 async def welcome_chat(filter, client: Client, message: Message):
-    to_welcome = await Zectdb.get_welcome(str(message.chat.id))
+    to_welcome = await Automatodb.get_welcome(str(message.chat.id))
     if to_welcome:
         return True
     else:
