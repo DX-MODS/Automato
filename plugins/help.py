@@ -2,7 +2,8 @@ from pyrogram import filters
 from helper.utils import Automato, HELP, CMD_HELP
 from config import Config
 from helper.pyrohelper import get_arg
-
+HELP = {}
+CMD_HELP = {}
 HELP.update(
     {
         "**Admin Tools**": "__ban, unban, promote, demote, kick, mute, unmute, gmute, ungmute, pin, purge, del, invite__",
