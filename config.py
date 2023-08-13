@@ -28,7 +28,9 @@ class Config(object):
     FORCE_SUB   = os.environ.get("FORCE_SUB", "") 
     #the log channel id must start in -100 this channel will be were the bot send logs
     LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", None))
-
+    #prefix for the bot eg "!./#"
+    PREFIX  = os.environ.get("PREFIX", "")
+    
     # wes response configuration
     #if your bot is web required give True or else False
     WEBHOOK = bool(os.environ.get("WEBHOOK", True))
