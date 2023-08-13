@@ -5,7 +5,7 @@
 #if you use our codes try to donate here https://www.buymeacoffee.com/ziyankp
 
 from config import Config
-from helper.database import db
+from helper.db import db
 from pyrogram.types import Message
 from pyrogram import Client, filters
 from pyrogram.errors import FloodWait, InputUserDeactivated, UserIsBlocked, PeerIdInvalid
