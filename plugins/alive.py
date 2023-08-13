@@ -51,7 +51,7 @@ async def alive(_, m):
     photo = "https://graph.org/file/7ed4076ca07271fef389b.jpg"
     await m.delete()
     if m.reply_to_message:
-        await app.send_photo(
+        await Automato.send_photo(
             m.chat.id,
             photo,
             caption=reply_msg,
