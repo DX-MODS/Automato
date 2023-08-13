@@ -6,9 +6,7 @@ from pyrogram.types import Message
 from helper.utils import Automato
 
 
-@Automato.on_message(
-    filters.command(["neko", "paste"]) & filters.me
-)
+@Automato.on_message(filters.private & filters.command("neko"))
 async def neko(_, message: Message):
     text = message.reply_to_message.text
     try:
