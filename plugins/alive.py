@@ -1,53 +1,43 @@
+import os
 import asyncio
-import time
-from datetime import datetime
-from pyrogram import filters
-from helper.start_time import StartTime
-from sys import version_info
-from helper.utils import Automato
-from pyrogram.types import Message
+from pyrogram import Client, filters
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message, CallbackQuery
+from telegraph import upload_file
+from helper.utils import get_file_id
 
 
-__major__ = 0
-__minor__ = 2
-__micro__ = 1
-
-__python_version__ = f"{version_info[0]}.{version_info[1]}.{version_info[2]}"
-__pyro_version__ = "2.0.106"
-
-def get_readable_time(seconds: int) -> str:
-    count = 0
-    ping_time = ""
-    time_list = []
-    time_suffix_list = ["s", "m", "h", "days"]
-
-    while count < 4:
-        count += 1
-        remainder, result = divmod(seconds, 60) if count < 3 else divmod(seconds, 24)
-        if seconds == 0 and remainder == 0:
-            break
-        time_list.append(int(result))
-        seconds = int(remainder)
-
-    for x in range(len(time_list)):
-        time_list[x] = str(time_list[x]) + time_suffix_list[x]
-    if len(time_list) == 4:
-        ping_time += time_list.pop() + ", "
-
-    time_list.reverse()
-    ping_time += ":".join(time_list)
-
-    return ping_time
-
-@Automato.on_message(filters.private & filters.command("alive"))
-async def alive(_, m):
-    start_time = time.time()
-    uptime = get_readable_time((time.time() - StartTime))
-    reply_msg = f"**[Automato](https://github.com/DX-MODS/Automato)**\n"
-    reply_msg += f"__Python__: `{__python_version__}`\n"
-    reply_msg += f"__@Pyrogram version__: `{__pyro_version__}`\n"
-    end_time = time.time()
-    reply_msg += f"__Automato uptime__: {uptime}"
-    photo = "https://graph.org/file/7ed4076ca07271fef389b.jpg"
-    await message.reply_photo(photo, caption=reply_msg)
-
+@Client.on_message(filters.command("telegraph") & filters.private)
+async def telegraph_upload(bot, update):
+    replied = update.reply_to_message
+    if not replied:
+        await update.reply_text("𝚁𝙴𝙿𝙻𝚈 𝚃𝙾 𝙰 𝙿𝙷𝙾𝚃𝙾 𝙾𝚁 𝚅𝙸𝙳𝙴𝙾 𝚄𝙽𝙳𝙴𝚁 𝟻𝙼𝙱.")
+        return
+    file_info = get_file_id(replied)
+    if not file_info:
+        await update.reply_text("Not supported!")
+        return
+    text = await update.reply_text(text="<code>Downloading to My Server ...</code>", disable_web_page_preview=True)   
+    media = await update.reply_to_message.download()   
+    await text.edit_text(text="<code>Downloading Completed. Now I am Uploading to telegra.ph Link ...</code>", disable_web_page_preview=True)                                            
+    try:
+        response = upload_file(media)
+    except Exception as error:
+        print(error)
+        await text.edit_text(text=f"Error :- {error}", disable_web_page_preview=True)       
+        return    
+    try:
+        os.remove(media)
+    except Exception as error:
+        print(error)
+        return    
+    await text.edit_text(
+        text=f"<b>Link :-</b>\n\n<code>https://graph.org{response[0]}</code>",
+        disable_web_page_preview=True,
+        reply_markup=InlineKeyboardMarkup( [[
+            InlineKeyboardButton(text="Open Link", url=f"https://graph.org{response[0]}"),
+            InlineKeyboardButton(text="Share Link", url=f"https://telegram.me/share/url?url=https://graph.org{response[0]}")
+            ],[
+            InlineKeyboardButton(text="✗ Close ✗", callback_data="close")
+            ]])
+        )
+    
