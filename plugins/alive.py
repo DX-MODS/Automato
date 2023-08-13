@@ -49,13 +49,5 @@ async def alive(_, m):
     end_time = time.time()
     reply_msg += f"__Automato uptime__: {uptime}"
     photo = "https://graph.org/file/7ed4076ca07271fef389b.jpg"
-    if m.reply_to_message:
-        await Automato.send_photo(
-            m.chat.id,
-            photo,
-            caption=reply_msg,
-            reply_to_message_id=m.reply_to_message.id,
-        )
-    else:
-        await Automato.send_photo(m.chat.id, photo, caption=reply_msg)
+        await message.reply_photo(photo, caption=reply_msg)
 
