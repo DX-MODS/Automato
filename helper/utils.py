@@ -9,6 +9,8 @@ from datetime import datetime
 from pytz import timezone
 from config import Config 
 from pyrogram import Client
+HELP = {}
+CMD_HELP = {}
 Automato = Client
 def humanbytes(size):    
     if not size:
