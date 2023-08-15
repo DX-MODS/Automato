@@ -10,7 +10,7 @@ from helper.parser import mention_html, mention_markdown
 from plugins.help import *
 from helper.utils import Automato
 
-@Client.on_message(filters.me & filters.command(["admins", "adminlist"], PREFIX))
+@Client.on_message(filters.command(["admins"], PREFIX) & filters.private)
 async def adminlist(client: Client, message: Message):
     replyid = None
     toolong = False
