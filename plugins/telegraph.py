@@ -4,6 +4,7 @@ from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message, CallbackQuery
 from telegraph import upload_file
 from helper.utils import get_file_id, Automato 
+from .help import *
 
 @Automato.on_message(filters.command("telegraph") & filters.private)
 async def telegraph_upload(bot, update):
@@ -40,3 +41,12 @@ async def telegraph_upload(bot, update):
             ]])
         )
     
+    add_command_help(
+    "telegraph",
+    [
+        [
+            f"telegraph atau {cmd}tg",
+            "Balas ke Pesan Teks atau Media untuk mengunggahnya ke telegraph.",
+        ],
+    ],
+    )
