@@ -7,7 +7,7 @@ PREFIX = Config.PREFIX
 API_URL = "https://api.nekosapi.com/v2/images/random"
 
 
-@Client.on_message(filters.command("randomanime", PREFIX) & filters.me)
+@Client.on_message(filters.command(["anime"], PREFIX) & filters.private)
 async def random_anime(client: Client, message: Message):
     # Send the "Processing..." message
     await message.edit("Fetching a random anime image...")
