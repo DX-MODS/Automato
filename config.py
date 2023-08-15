@@ -29,7 +29,7 @@ class Config(object):
     #the log channel id must start in -100 this channel will be were the bot send logs
     LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", None))
     #prefix for the bot eg "!./#"
-    PREFIX  = os.environ.get("PREFIX", "")
+    PREFIX  = os.environ.get("PREFIX", ".")
     
     # wes response configuration
     #if your bot is web required give True or else False
