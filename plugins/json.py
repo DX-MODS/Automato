@@ -1,8 +1,9 @@
 import os
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message, CallbackQuery
+from helper.utils import Automato
 
-@Client.on_message(filters.command(["json", 'js']))
+@Automato.on_message(filters.command(["json", 'js']))
 async def jsonify(_, message):
     the_real_message = None
     reply_to_id = None
