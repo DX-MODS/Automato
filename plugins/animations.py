@@ -101,7 +101,7 @@ async def phase4(message):
         await asyncio.sleep(SLEEP)
 
 
-@Client.on_message(filters.command(["heart", "love"], cmd) & filters.me)
+@Client.on_message(filters.command(["love"], cmd) & filters.private)
 async def hearts(client: Client, message: Message):
     await phase1(message)
     await asyncio.sleep(SLEEP * 3)
