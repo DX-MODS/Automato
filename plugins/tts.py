@@ -6,7 +6,7 @@ from googletrans import Translator
 from gtts import gTTS
 from pyrogram import Client, filters
 from pyrogram.types import Message
-
+from helper.utils import Automato
 
 def convert(text):
     audio = BytesIO()
@@ -18,7 +18,7 @@ def convert(text):
     return audio
 
 
-@Client.on_message(filters.command("tts"))
+@Automato.on_message(filters.command("tts"))
 async def text_to_speech(_, message: Message):
     if not message.reply_to_message:
         return await message.reply_text("Reply to some text ffs.")
