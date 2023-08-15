@@ -10,7 +10,7 @@ from pytz import timezone
 from config import Config 
 from pyrogram import Client
 from pyrogram.types import Message
-HELP = {}
+
 CMD_HELP = {}
 Automato = Client
 
