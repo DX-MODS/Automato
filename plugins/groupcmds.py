@@ -4,13 +4,14 @@ from pyrogram import Client, enums, filters
 from pyrogram.types import Message
 
 from config import Config
-PREFIX = Config.PREFIX
+cmd = Config.PREFIX
 from helper.basic import edit_or_reply
 from helper.parser import mention_html, mention_markdown
 from plugins.help import *
 from helper.utils import Automato
 
-@Client.on_message(filters.command(["admins"], PREFIX))
+
+@Client.on_message(filters.me & filters.command(["admins", "adminlist"], cmd))
 async def adminlist(client: Client, message: Message):
     replyid = None
     toolong = False
@@ -73,7 +74,7 @@ async def adminlist(client: Client, message: Message):
         await message.edit(teks)
 
 
-@Client.on_message(filters.command(["kickdel", "zombies"], PREFIX) & filters.me)
+@Client.on_message(filters.command(["kickdel", "zombies"], cmd) & filters.me)
 async def kickdel_cmd(client: Client, message: Message):
     Man = await edit_or_reply(message, "<b>Kicking deleted accounts...</b>")
     # noinspection PyTypeChecker
@@ -86,7 +87,7 @@ async def kickdel_cmd(client: Client, message: Message):
 
 
 @Client.on_message(
-    filters.me & filters.command(["reportadmin", "reportadmins", "report"], PREFIX)
+    filters.me & filters.command(["reportadmin", "reportadmins", "report"], cmd)
 )
 async def report_admin(client: Client, message: Message):
     await message.delete()
@@ -134,7 +135,7 @@ async def report_admin(client: Client, message: Message):
         )
 
 
-@Client.on_message(filters.me & filters.command(["everyone", "tagall"], PREFIX))
+@Client.on_message(filters.me & filters.command(["everyone", "tagall"], cmd))
 async def tag_all_users(client: Client, message: Message):
     await message.delete()
     if len(message.text.split()) >= 2:
@@ -158,7 +159,7 @@ async def tag_all_users(client: Client, message: Message):
         )
 
 
-@Client.on_message(filters.me & filters.command(["botlist", "bots"], PREFIX))
+@Client.on_message(filters.me & filters.command(["botlist", "bots"], cmd))
 async def get_list_bots(client: Client, message: Message):
     replyid = None
     if len(message.text.split()) >= 2:
@@ -194,15 +195,15 @@ async def get_list_bots(client: Client, message: Message):
 add_command_help(
     "tag",
     [
-        [f"{PREFIX}admins", "Get chats Admins list."],
-        [f"{PREFIX}kickdel", "To Kick deleted Accounts."],
+        [f"{cmd}admins", "Get chats Admins list."],
+        [f"{cmd}kickdel", "To Kick deleted Accounts."],
         [
-            f"{PREFIX}everyone `or` {PREFIX}tagall",
+            f"{cmd}everyone `or` {cmd}tagall",
             "to mention Everyone ",
         ],
         [
-            f"{PREFIX}botlist",
+            f"{cmd}botlist",
             "To get Chats Bots list",
         ],
     ],
-      )
+)
