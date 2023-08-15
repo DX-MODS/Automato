@@ -22,8 +22,6 @@ logging.getLogger().setLevel(logging.ERROR)
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
 logger = logging.getLogger(__name__)
 
-CMD_HELP = {}
-
 class Automato(Client):
 
     def __init__(self):
