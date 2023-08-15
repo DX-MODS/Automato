@@ -3,7 +3,7 @@ from pyrogram import Client, enums, filters
 from pyrogram.types import Message
 
 from config import Config
-from bot import CMD_HELP
+from helper.utils import CMD_HELP
 from helper.basic import edit_or_reply
 from helper.utility import split_list
 PREFIX = Config.PREFIX
