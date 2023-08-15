@@ -18,3 +18,4 @@ youtube-search
 yt-dlp==2023.7.6
 wget
 prettytable
+googlesearch-python== 1.0.1
