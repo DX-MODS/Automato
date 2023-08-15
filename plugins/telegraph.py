@@ -47,8 +47,8 @@ async def telegraph_upload(bot, update):
     "telegraph",
     [
         [
-            f"telegraph atau {PREFIX}tg",
-            "Balas ke Pesan Teks atau Media untuk mengunggahnya ke telegraph.",
+            f"telegraph or{PREFIX}.tg",
+            "Reply to any media message under 5mb.",
         ],
     ],
     )
