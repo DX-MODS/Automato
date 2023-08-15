@@ -2,9 +2,9 @@ import os
 from helper.font_string import Fonts
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+from helper.utils import Automato
 
-
-@Client.on_message(filters.private & filters.command(["font"]))
+@Automato.on_message(filters.private & filters.command(["font"]))
 async def style_buttons(c, m, cb=False):
     buttons = [[
         InlineKeyboardButton('𝚃𝚢𝚙𝚎𝚠𝚛𝚒𝚝𝚎𝚛', callback_data='style+typewriter'),
@@ -48,7 +48,7 @@ async def style_buttons(c, m, cb=False):
         await m.message.edit_reply_markup(InlineKeyboardMarkup(buttons))
 
 
-@Client.on_callback_query(filters.regex('^nxt'))
+@Automato.on_callback_query(filters.regex('^nxt'))
 async def nxt(c, m):
     if m.data == "nxt":
         buttons = [[
@@ -84,7 +84,7 @@ async def nxt(c, m):
         await style_buttons(c, m, cb=True)
 
 
-@Client.on_callback_query(filters.regex('^style'))
+@Automato.on_callback_query(filters.regex('^style'))
 async def style(c, m):
     await m.answer()
     cmd, style = m.data.split('+')
