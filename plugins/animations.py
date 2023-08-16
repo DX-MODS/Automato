@@ -57,7 +57,7 @@ SLEEP = 0.1
 async def _wrap_edit(message, text: str):
     """Floodwait-safe utility wrapper for edit"""
     try:
-        await message.edit(text)
+        await message.reply_text(text)
     except FloodWait as fl:
         await asyncio.sleep(fl.x)
 
