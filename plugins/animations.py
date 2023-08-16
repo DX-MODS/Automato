@@ -105,13 +105,13 @@ async def phase4(message):
 async def hearts(client: Client, message: Message):
     await phase1(message)
     await asyncio.sleep(SLEEP * 3)
-    await message.edit("❤️ I")
+    dx = await message.reply_text("❤️ I")
     await asyncio.sleep(0.5)
-    await message.edit("❤️ I Love")
+    await dx.edit("❤️ I Love")
     await asyncio.sleep(0.5)
-    await message.edit("❤️ I Love You")
+    await dx.edit("❤️ I Love You")
     await asyncio.sleep(3)
-    await message.edit("❤️ I Love You <3")
+    await dx.edit("❤️ I Love You <3")
 
 
 @Client.on_message(
