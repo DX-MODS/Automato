@@ -1,7 +1,7 @@
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from helper.utils import Automato
-from config import GENIUS_API
+from config import Config
 import requests
 from lyricsgenius import Genius 
 import os
@@ -11,7 +11,7 @@ API = "https://apis.xditya.me/lyrics?song="
 
 @Automato.on_message(filters.text & filters.command(["genius"]) & filters.private)
 async def sng(bot, message):  
-          genius = Genius(GENIUS_API)        
+          genius = Genius(Config.GENIUS_API)        
           mee = await message.reply_text("`Searching`")
           try:
               song = message.text.split(None, 1)[1] #.lower().strip().replace(" ", "%20")
