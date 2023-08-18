@@ -9,7 +9,7 @@ import os
 
 API = "https://apis.xditya.me/lyrics?song="
 
-@Automato.on_message(filters.text & filters.command(["genius"]) & filters.private)
+@Automato.on_message(filters.text & filters.command(["faded"], Config.PREFIX) & filters.private)
 async def sng(bot, message):  
           genius = Genius(Config.GENIUS_API)        
           mee = await message.reply_text("`Searching`")
@@ -26,9 +26,9 @@ async def sng(bot, message):
             await mee.delete()
             await message.reply(rpl)
           except Exception as e:                            
-             await message.reply_text(f"lyrics does not found for `{song} {e}`") #", quote = True, reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("ᴜᴘᴅᴀᴛᴇs", url = f"https://t.me/DxSpotifyDlbot")]]))
+             await message.reply_text(f"lyrics does not found for `{song} {e}`") #", quote = True, reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("ᴜᴘᴅᴀᴛᴇs", url = f"https://t.me/dxmodsupdates")]]))
           finally:
-            await message.reply("Check out @dxmodsupdates(Updates)  @https://t.me/DXMODS_Support(Support)")
+            await message.reply("Check out @dxmodsupdates(Updates)  https://t.me/DXMODS_Support(Support)")
 
 
 
