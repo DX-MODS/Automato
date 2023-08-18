@@ -30,6 +30,7 @@ class Config(object):
     LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", None))
     #prefix for the bot eg "!./#"
     PREFIX  = os.environ.get("PREFIX", ".")
+    GENIUS_API = os.environ.get("GENIUS_API", "")
     
     # wes response configuration
     #if your bot is web required give True or else False
