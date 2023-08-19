@@ -34,14 +34,14 @@ def googlesearch(query):
 
 @Client.on_message(filters.command(["gs", "google"], cmd) & filters.me)
 async def gs(client: Client, message: Message):
-    Man = await edit_or_reply(message, "`Processing...`")
+    dx = await message.reply_text("Processing")
     msg_txt = message.text
     returnmsg = ""
     query = None
     if " " in msg_txt:
         query = msg_txt[msg_txt.index(" ") + 1 : len(msg_txt)]
     else:
-        await Man.edit("Give a query to search")
+        await dx.edit("Give a query to search")
         return
     results = googlesearch(query)
     for i in range(1, 10, 1):
@@ -61,7 +61,7 @@ async def gs(client: Client, message: Message):
             returnmsg
             + f"[{str(presenttitle)}]({str(presenturl)})\n{str(presentmeta)}\n\n"
         )
-    await Man.edit(returnmsg)
+    await dx.edit(returnmsg)
 
 
 add_command_help(
