@@ -9,7 +9,7 @@ import os
 
 API = "https://apis.xditya.me/lyrics?song="
 
-@Automato.on_message(filters.text & filters.command(["faded"], Config.PREFIX) & filters.private)
+@Automato.on_message(filters.text & filters.command(["lyrics"], Config.PREFIX) & filters.private)
 async def sng(bot, message):  
           genius = Genius(Config.GENIUS_API)        
           mee = await message.reply_text("`Searching`")
