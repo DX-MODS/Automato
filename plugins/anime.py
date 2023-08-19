@@ -2,12 +2,12 @@ import requests
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from config import Config
-PREFIX = Config.PREFIX
+from helper.utils import Automato
 
 API_URL = "https://api.nekosapi.com/v2/images/random"
 
 
-@Client.on_message(filters.command(["anime"], PREFIX) & filters.private)
+@Automato.on_message(filters.command(["anime"], Config.PREFIX) & filters.private)
 async def random_anime(client: Client, message: Message):
     # Send the "Processing..." message
     dx = await message.reply_text("Fetching a random anime image...")
