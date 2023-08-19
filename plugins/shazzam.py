@@ -26,9 +26,9 @@ import requests
 from typing import Tuple
 from pyrogram import filters
 from pyrogram import Client
-from config import OWNER_ID as ADMINS
+
 import time
-from helper.utils.shazam import humanbytes, edit_or_reply, fetch_audio
+from helper.utils.shazzam import humanbytes, edit_or_reply, fetch_audio
 NOT_SUPPORT = [ ]
 
 def get_arg(message):
@@ -96,7 +96,7 @@ async def shazam_(client, message):
         return await msg.edit("`𝙽𝚘 𝚁𝚎𝚜𝚞𝚕𝚝𝚜 𝙵𝚘𝚞𝚗𝚍.`")
     etime = time.time()
     t_k = round(etime - stime)
-    caption = f"""<b><u>𝙶𝚎𝚗𝚎𝚛𝚊𝚝𝚎𝚍 𝙱𝚢 @DxSpotifyDlbot</b></u>
+    caption = f"""<b><u>𝙶𝚎𝚗𝚎𝚛𝚊𝚝𝚎𝚍 𝙱𝚢 @AutomatoDxbot</b></u>
     
 <b>Song Name :</b> <code>{title}</code>
 <b>Singer :</b> <code>{by}</code>
@@ -104,7 +104,7 @@ async def shazam_(client, message):
 <b>Size :</b> <code>{size_}</code>
 <b>Time Taken :</b> <code>{t_k} Seconds</code>
 
-<b><u>𝙶𝚎𝚗𝚎𝚛𝚊𝚝𝚎𝚍 𝙱𝚢 @DxSpotifyDlbot</b></u>
+<b><u>𝙶𝚎𝚗𝚎𝚛𝚊𝚝𝚎𝚍 𝙱𝚢 @AutomatoDxbot</b></u>
     """
     if thumb:
         await msg.delete()
