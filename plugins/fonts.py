@@ -4,8 +4,8 @@ from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from helper.utils import Automato
 from config import Config
-PREFIX = Config.PREFIX
-@Automato.on_message(filters.command(["font"], PREFIX) & filters.private)
+
+@Automato.on_message(filters.command(["font"], Config.PREFIX) & filters.private)
 async def style_buttons(c, m, cb=False):
     buttons = [[
         InlineKeyboardButton('𝚃𝚢𝚙𝚎𝚠𝚛𝚒𝚝𝚎𝚛', callback_data='style+typewriter'),
