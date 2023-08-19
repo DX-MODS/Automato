@@ -28,7 +28,7 @@ from pyrogram import filters
 from pyrogram import Client
 
 import time
-from helper.utils.shazzam import humanbytes, edit_or_reply, fetch_audio
+from helper.functions.shazzam import humanbytes, edit_or_reply, fetch_audio
 NOT_SUPPORT = [ ]
 
 def get_arg(message):
