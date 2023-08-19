@@ -15,7 +15,7 @@ import asyncio
 import time
 import os
 from requests import get
-from dxbotz.utils.util import run_cmd as runcmd
+from helper.utils.util import run_cmd as runcmd
 import datetime
 from json import JSONDecodeError
 import requests
