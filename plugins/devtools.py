@@ -26,7 +26,7 @@ def paste(text):
     res = post(url, data={"content": text, "extension": "txt"})
     return f"https://spaceb.in/{res.json()['payload']['id']}"
         
-@Automato.on_message(filters.user(Config.ADMIN) & filters.command("shell", prefixes=['/', '.', '?', '-']) & filters.private)
+@Automato.on_message(filters.user(Config.ADMIN) & filters.command("shell", Config.PREFIX) & filters.private)
 def sh(_, m: Message):
     try:
         code = m.text.replace(m.text.split(" ")[0], "")
@@ -41,7 +41,7 @@ def sh(_, m: Message):
         h = m.reply(x)
         m.reply(e)
 
-@Automato.on_message(filters.user(Config.ADMIN) & filters.command("eva"))
+@Automato.on_message(filters.user(Config.ADMIN) & filters.command("eva", Config.PREFIX))
 async def eval(client, message):
     status_message = await message.reply_text("Processing ...")
     cmd = message.text.split(" ", maxsplit=1)[1]
