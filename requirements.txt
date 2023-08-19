@@ -20,3 +20,5 @@ wget
 prettytable
 googlesearch-python== 1.2.3
 lyricsgenius
+Shazamio
+ffmpeg
