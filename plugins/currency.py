@@ -6,10 +6,7 @@ from comfig import Config
 CURRENCY_API = Config.CURRENCY_API
 
 
-LOGGER = logging.getLogger(__name__)
-
-
-
+@Automato.on_message(filters.command(["currency"], Config.PREFIX))
 async def currency(_, ctx: Message):
     if CURRENCY_API is None:
         return await ctx.reply_msg(
