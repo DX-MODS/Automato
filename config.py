@@ -31,6 +31,7 @@ class Config(object):
     #prefix for the bot eg "!./#"
     PREFIX  = os.environ.get("PREFIX", ".")
     GENIUS_API = os.environ.get("GENIUS_API", "")
+    CURRENCY_API = os.environ.get("CURRENCY_API", "")
     
     # wes response configuration
     #if your bot is web required give True or else False
