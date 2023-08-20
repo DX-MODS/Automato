@@ -9,8 +9,9 @@ import time
 from helper.start_time import StartTime
 from helper.readable_time import *
 from helper.utils import Automato
+from config import Config
 import shutil, psutil
-@Automato.on_message(filters.private & filters.regex("status"))
+@Automato.on_message(filters.private & filters.command(["status"], Config.PREFIX))
 async def stats(bot, update):
   currentTime = readable_time((time.time() - StartTime))
   total, used, free = shutil.disk_usage('.')
