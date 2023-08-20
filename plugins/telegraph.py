@@ -5,10 +5,9 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message, 
 from telegraph import upload_file
 from helper.utils import get_file_id, Automato
 from config import Config
-PREFIX = Config.PREFIX
 from .help import *
 
-@Automato.on_message(filters.command("telegraph") & filters.private)
+@Automato.on_message(filters.command(["tg","telegraph"], Config.PREFIX))
 async def telegraph_upload(bot, update):
     replied = update.reply_to_message
     if not replied:
@@ -47,7 +46,7 @@ async def telegraph_upload(bot, update):
     "telegraph",
     [
         [
-            f"telegraph or{PREFIX}.tg",
+            f"telegraph or{Config.PREFIX}.tg",
             "Reply to any media message under 5mb.",
         ],
     ],
