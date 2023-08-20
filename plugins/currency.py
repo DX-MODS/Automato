@@ -1,7 +1,7 @@
 import logging
 from pyrogram.types import Message
 from helper.utils import Automato
-from helper.function.http import fetch
+from helper.functions.http import fetch
 from comfig import Config
 CURRENCY_API = Config.CURRENCY_API
 
