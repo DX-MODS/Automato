@@ -12,7 +12,7 @@ from config import Config
 from helper.txt import Txt
 from helper.utils import Automato
 
-@Automato.on_message(filters.private & filters.command("start"))
+@Automato.on_message(filters.private & filters.command(["start"], Config.PREFIX))
 async def start(client, message):
     user = message.from_user
     await db.add_user(client, message)                
