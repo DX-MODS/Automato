@@ -6,9 +6,9 @@ from config import Config
 from helper.utils import CMD_HELP
 from helper.basic import edit_or_reply
 from helper.utility import split_list
-PREFIX = Config.PREFIX
+from helper.utils import Automato
 
-@Client.on_message(filters.command(["help"], PREFIX) & filters.private)
+@Client.on_message(filters.command(["help"], Config.PREFIX) & filters.private)
 async def module_help(client: Client, message: Message):
     cmd = message.command
     help_arg = ""
