@@ -4,7 +4,7 @@ from urllib.parse import quote
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from helper.utils import Automato
 
-@Automato.on_message(filters.command(["share_text", "share", "sharetext",]))
+@Automato.on_message(filters.command(["share","sharetext","share_text"], Config.PREFIX))
 async def share_text(client, message):
     reply = message.reply_to_message
     reply_id = message.reply_to_message.id if message.reply_to_message else message.id
