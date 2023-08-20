@@ -18,7 +18,7 @@ def convert(text):
     return audio
 
 
-@Automato.on_message(filters.command("tts"))
+@Automato.on_message(filters.command(["tts"], Config.PREFIX))
 async def text_to_speech(_, message: Message):
     if not message.reply_to_message:
         return await message.reply_text("Reply to some text ffs.")
