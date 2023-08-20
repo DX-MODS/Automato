@@ -2,6 +2,7 @@ import os
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message, CallbackQuery
 from helper.utils import Automato
+from config import Config
 
 @Automato.on_message(filters.command(["json","js"], Config.PREFIX))
 async def jsonify(_, message):
