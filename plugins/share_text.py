@@ -3,6 +3,7 @@ from pyrogram import Client, filters
 from urllib.parse import quote
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from helper.utils import Automato
+from config import Config
 
 @Automato.on_message(filters.command(["share","sharetext","share_text"], Config.PREFIX))
 async def share_text(client, message):
