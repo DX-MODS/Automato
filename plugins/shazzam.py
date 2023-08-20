@@ -72,7 +72,7 @@ async def convert_to_audio(vid_path):
         return None
     return final_warner
 
-@Client.on_message(filters.command(["find", "shazam"] ))
+@Client.on_message(filters.command(["find","shazzam"], Config.PREFIX))
 async def shazam_(client, message):
     stime = time.time()
     msg = await message.reply_text("`𝚂𝚑𝚊𝚣𝚊𝚖𝚒𝚗𝚐 𝚃𝚑𝚒𝚜 𝚂𝚘𝚗𝚐.")
