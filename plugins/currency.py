@@ -1,5 +1,6 @@
 import logging
 from pyrogram.types import Message
+from pyrogram import Client, filters
 from helper.utils import Automato
 from helper.functions.http import fetch
 from config import Config
