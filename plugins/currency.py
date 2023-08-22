@@ -10,10 +10,7 @@ CURRENCY_API = Config.CURRENCY_API
 @Automato.on_message(filters.command(["currency"], Config.PREFIX))
 async def currency(_, ctx: Message):
     if CURRENCY_API is None:
-        return await ctx.reply_msg(
-            "<code>Oops!!get the API from</code> <a href='https://app.exchangerate-api.com/sign-up'>HERE</a> <code>& add it to config vars</code> (<code>CURRENCY_API</code>)",
-            disable_web_page_preview=True,
-        )
+        return await message.reply_text("<code>Oops!!get the API from</code> <a href='https://app.exchangerate-api.com/sign-up'>HERE</a> <code>& add it to config vars</code> (<code>CURRENCY_API</code>)", quote=True, disable_web_page_preview=True)     
     if len(ctx.text.split()) != 4:
         return await ctx.reply_msg(
             f"Use format /{ctx.command[0]} [amount] [currency_from] [currency_to] to convert currency.",
