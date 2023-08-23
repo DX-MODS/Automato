@@ -11,6 +11,7 @@ import re
 import os
 from datetime import datetime
 from typing import List
+from bs4 import BeautifulSoup
 import requests, aiohttp 
 
 logger = logging.getLogger(__name__)
