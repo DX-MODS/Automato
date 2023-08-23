@@ -21,4 +21,4 @@ prettytable
 googlesearch-python== 1.2.3
 lyricsgenius
 Shazamio
-cinemagoer==2023.5.1
+cinemagoer==2022.12.27
