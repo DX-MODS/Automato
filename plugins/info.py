@@ -3,6 +3,7 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQ
 from pyrogram.errors.exceptions.bad_request_400 import UserNotParticipant
 import time
 from datetime import datetime
+from helper.basic import extract_user
 @Client.on_message(filters.command(["info"]))
 async def who_is(client, message):
     status_message = await message.reply_text(
