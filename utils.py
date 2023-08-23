@@ -36,10 +36,7 @@ async def get_poster(query, bulk=False, id=False, file=None):
                 year = list_to_str(year[:1]) 
         else:
             year = None
-        try:
-           movieid = imdb.search_movie(title.lower(), results=10)
-        except:
-           return None
+        movieid = imdb.search_movie(title.lower(), results=10)
         if not movieid:
             return None
         if year:
@@ -101,7 +98,7 @@ async def get_poster(query, bulk=False, id=False, file=None):
         'plot': plot,
         'rating': str(movie.get("rating")),
         'url':f'https://www.imdb.com/title/tt{movieid}'
-  }
+    }
 
 def get_file_id(msg: Message):
     if msg.media:
