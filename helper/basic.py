@@ -6,6 +6,8 @@ import asyncio
 import requests, aiohttp
 from datetime import datetime
 from config import Config
+import re
+import os
 
 imdb = Cinemagoer() 
 
