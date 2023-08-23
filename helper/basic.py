@@ -5,6 +5,7 @@ from imdb import Cinemagoer
 import asyncio
 import requests, aiohttp
 from datetime import datetime
+from config import Config
 
 imdb = Cinemagoer() 
 
@@ -51,7 +52,7 @@ async def get_poster(query, bulk=False, id=False, file=None):
     else:
         date = "N/A"
     plot = ""
-    if not LONG_IMDB_DESCRIPTION:
+    if not Config.LONG_IMDB_DESCRIPTION:
         plot = movie.get('plot')
         if plot and len(plot) > 0:
             plot = plot[0]
