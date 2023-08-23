@@ -40,6 +40,7 @@ class Config(object):
     GENIUS_API = os.environ.get("GENIUS_API", "")
     CURRENCY_API = os.environ.get("CURRENCY_API", "")
     LONG_IMDB_DESCRIPTION = is_enabled(environ.get("LONG_IMDB_DESCRIPTION", "False"), False)
+    IMDB_TEMPLATE = environ.get("IMDB_TEMPLATE", "<b>Query: {query}</b> \n‌IMDb Data:\n\n🏷 Title: <a href={url}>{title}</a>\n🎭 Genres: {genres}\n📆 Year: <a href={url}/releaseinfo>{year}</a>\n🌟 Rating: <a href={url}/ratings>{rating}</a> / 10")
     # wes response configuration
     #if your bot is web required give True or else False
     WEBHOOK = bool(os.environ.get("WEBHOOK", True))
