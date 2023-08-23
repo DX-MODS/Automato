@@ -2,7 +2,7 @@ import logging
 from pyrogram.errors import InputUserDeactivated, UserNotParticipant, FloodWait, UserIsBlocked, PeerIdInvalid
 from config import Config
 LONG_IMDB_DESCRIPTION = Config.LONG_IMDB_DESCRIPTION
-from imdb import Cinemagoer
+from imdb import IMDb
 import asyncio
 from pyrogram.types import Message, InlineKeyboardButton
 from pyrogram import enums
@@ -19,7 +19,7 @@ logger.setLevel(logging.INFO)
 
 BTN_URL_REGEX = re.compile(r"(\[([^\[]+?)\]\((buttonurl|buttonalert):(?:/{0,2})(.+?)(:same)?\))")
 
-imdb = Cinemagoer() 
+imdb = IMDb() 
 
 async def get_poster(query, bulk=False, id=False, file=None):
     if not id:
