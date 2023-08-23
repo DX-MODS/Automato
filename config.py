@@ -8,6 +8,13 @@ import re, os, time
 from dotenv import load_dotenv
 load_dotenv("config.env")
 id_pattern = re.compile(r'^.\d+$') 
+def is_enabled(value, default):
+    if value.strip().lower() in ["on", "true", "yes", "1", "enable", "y"]:
+        return True
+    elif value.strip().lower() in ["off", "false", "no", "0", "disable", "n"]:
+        return False
+    else:
+        return default
 
 class Config(object):
     # pyrogram client config
@@ -32,7 +39,7 @@ class Config(object):
     PREFIX  = os.environ.get("PREFIX", ".")
     GENIUS_API = os.environ.get("GENIUS_API", "")
     CURRENCY_API = os.environ.get("CURRENCY_API", "")
-    
+    LONG_IMDB_DESCRIPTION = is_enabled(environ.get("LONG_IMDB_DESCRIPTION", "False"), False)
     # wes response configuration
     #if your bot is web required give True or else False
     WEBHOOK = bool(os.environ.get("WEBHOOK", True))
