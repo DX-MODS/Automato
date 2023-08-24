@@ -3,8 +3,7 @@ from pyrogram.enums import MessageMediaType
 from pyrogram.types import Message
 
 from config import Config
-from helper.basic import ReplyCheck
-from import run_cmd
+from helper.basic import ReplyCheck, run_cmd
 
 
 @Client.on_message(filters.command("extractaudio", Config.PREFIX) & filters.me)
