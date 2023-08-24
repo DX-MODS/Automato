@@ -10,10 +10,10 @@ from helper.basic import ReplyCheck, run_cmd
 async def extract_audio(client: Client, message: Message):
     replied = message.reply_to_message
     if not replied:
-        await message.edit("**Mohon Balas Ke Video**")
+        await message.reply_text("Reply To A Video")
         return
     if replied.media == MessageMediaType.VIDEO:
-        await message.edit("`Downloading Video . . .`")
+        await message.reply_text("Downloading Video...")
         file = await client.download_media(
             message=replied,
             file_name="ProjectMan/resources/",
