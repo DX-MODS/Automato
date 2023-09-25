@@ -15,7 +15,7 @@ gTTS==2.3.1
 googletrans==3.1.0a0
 youtube-search-python
 youtube-search
-yt-dlp==2023.7.6
+yt-dlp==2023.9.24
 wget
 prettytable
 googlesearch-python== 1.2.3
